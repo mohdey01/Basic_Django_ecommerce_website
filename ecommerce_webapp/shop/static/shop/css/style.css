@@ -1,0 +1,72 @@
+
+  .store{
+    background: rgb(238, 238, 238);
+  }
+  .banner-title{
+    color: #7070b7;
+  }
+
+  .banner-title:hover{
+    
+    font-size: 40px;
+  }
+
+  .search-box{
+    background: #7070b7;
+    color: black;
+  }
+  .search-box:hover{
+    color: white;
+  }
+  .col-md-3
+  {
+  display: inline-block;
+  margin-left:-4px;
+  }
+
+  .carousel-indicators .active {
+  background-color:#7070b7;
+    }
+
+  .col-md-3 img{
+
+    width: 200px;
+    height: 200px;
+  }
+
+  body .carousel-indicator li{
+  background-color:#7070b7;
+  }
+
+  body .carousel-indicators{
+  bottom: 0;
+  
+
+  }
+  #carousel-indicators2{
+    bottom: 0;
+    margin-bottom: -25px;
+  }
+
+  #carousel-control-prev-icon,
+  #carousel-control-next-icon{
+
+  background-color:#7070b7;
+  border: 2px solid #7070b7 ;
+  border-radius: 7px;
+  }
+
+  #carousel-control-prev,
+  #carousel-control-next{
+  top: auto;
+  bottom: auto;
+  padding-top: 200px;
+
+  }
+ 
+   body .no-padding{
+   padding-left: 0;
+   padding-right: 0;
+   }
+
+   

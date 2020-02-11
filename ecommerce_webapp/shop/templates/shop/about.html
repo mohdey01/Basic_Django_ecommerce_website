@@ -1,0 +1,66 @@
+{% extends 'shop/base.html' %}
+{%  block title %} about page {%endblock%}
+
+{% block body %}
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Shop Next Door!</h1>
+        <p>Shop Next Door is online Managed Marketplace that connects buyers and sellers online and offers a trusted and safe online shopping environment. With our customer centric approach we provide the best online shopping experience to our customers – starting from the best selection, great technology, perfect fulfillment and ending with the best customer service you have ever experienced.
+
+          Our rigorous merchant approval process ensures that our buyers can be assured on all aspects of product purchase, be it authenticity, quality or the price. Our merchants typically are successful retailers who have earned credibility and customer loyalty through years of excellence in building customer experience in the offline environment. So as a buyer you can be confident that you are buying the best from the best. Shop Next Door brings the best from all India together on one platform.
+          
+          Our merchants enjoy the benefit of our superior technology, large reach, robust fulfillment processes, reliable payment facility and unmatched marketing expertise. This allows them to focus on what they do the best, bringing the best products to the customer at the best price. We not only help our merchants reach to a larger market on a reliable platform but also to increase business multifold within the online space. This is done through a host of business management tools, effective marketing, decision enabling analytics and last but not the least, our buyer centric approach which ultimately leads to long term loyalty.
+          
+          You may be a buyer or a seller but there is one thing in common that Shop Next Door promises both. Unmatched online experience no matter which side of the transaction you are. Welcome to the marketplace!</p>
+        
+      </div>
+    </div>
+  
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Affordable</h2>
+          <p>
+            It's not about money , though that's nice to have. At the end of the day,it's really about matching the
+            right buyer to the right seller.We're Affordable match makers who cares about your choice keeping your budget in mind
+          </p>
+          <p><a class="btn btn-blue" href="/shop/" role="button">Visit Store »</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Easy-Returns</h2>
+          <p>
+            As Customer comes first, we have easy-peasy returns so that if customers are confused and not sure about any 
+            product and can request for easy returns with easy exchange or refunds.
+            Our motto is to never disappoint 
+          </p>
+          <p><a class="btn btn-blue" href="/shop/" role="button">View Store »</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Our Support</h2>
+          <p>
+            We are here for you always!We mean it when we say it
+            With our quick support system where people are always ready to hlp sellers and customers with any query
+            Transparency and quality is a first priority
+          </p>
+          <p><a class="btn btn-blue" href="/shop/" role="button">View Store »</a></p>
+        </div>
+      </div>
+  
+      <hr>
+  
+    </div> <!-- /container -->
+  
+  </main>
+  
+
+{% endblock %}
+{% block js %}
+<script>
+  $('.cartpopup').hide();
+  $('#clearCart').hide();
+</script>
+{% endblock %}

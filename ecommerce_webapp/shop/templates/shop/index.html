@@ -1,0 +1,172 @@
+
+{% extends 'shop/base.html' %}
+<!doctype html>
+<div lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+    <title>{% block title %}
+        Shop Next Door
+      {%endblock%}</title>
+      {% block css %}
+      {% load static %}
+      <link href="{%static 'shop/css/style.css' %}" rel="stylesheet" type="text/css" />
+        {% endblock %}
+     
+  </head>
+  {% block body %}
+  
+  <!-- Main Corousal  -->
+  <div id="main" class="carousel slide" data-ride="carousel" style="max-width:2000px;">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#main" data-slide-to="0" class="active"></li>
+      <li data-target="#main" data-slide-to="1"></li>
+      <li data-target="#main" data-slide-to="2"></li>
+    </ul>
+  
+    <!-- The slideshow -->
+    
+    <div class="container-fluid carousel-inner no-padding" style="height:400px;">
+      <div class="carousel-item active ">
+        <img class="d-block w-100" src="{%static 'shop/samsung_sale.jpg' %}" alt="Redmi Sale ">
+      </div>
+      <div class="carousel-item w-100">
+        <img class="d-block w-100" src="{%static 'shop/groceries.jpg' %}" alt="Fashion Sale">
+      </div>
+      <div class="carousel-item w-100">
+        <img class="d-block w-100" src="{%static 'shop/amazon_test.jpg' %}" alt="Accessories Fest">
+      </div>
+    </div>
+  
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" id="main-carousel-control-prev" href="#main" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" id="main-carousel-control-next" href="#main" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  
+  </div>
+
+
+  <!--
+    Main Corousal End
+  -->
+  <section class="store py-5" id="store">
+    <div class="container">
+      <div class="row">
+        <div class="col-10 mx-auto col-md-6 text-center">
+          <h1 class="text-capitalize">
+            Our <strong class="banner-title">store</strong>
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 col-md-5 mx-auto d-flex justify-content-around sortBtn flex-wrap">
+        <a href="#store" class="btn btn-black text-uppercase filter-btn m-2">all</a>
+        <a href="#Fashion" class="btn btn-black text-uppercase filter-btn m-2">Fashion</a>
+        <a href="#Electronics" class="btn btn-black text-uppercase filter-btn m-2">Electronics</a>
+        <a href="#Watches" class="btn btn-black text-uppercase filter-btn m-2">Watches</a>
+        <a href="#Groceries" class="btn btn-black text-uppercase filter-btn m-2">Groceries</a>
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="col-10 mx-auto col-md-6">
+          <form action="/shop/search/">
+            <div class="input-group my-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text search-box" id="search-icon">
+                <i class="fa fa-search"></i>
+              </span>
+            </div>
+            <input type="text"  placeholder="Search your cravings.." class="form-control form-control-sm" name="search" id="search">
+            <button class="btn btn-sm btn-blue my-2 mx-2 my-sm-0" type="submit">Search</button>
+          </div>
+          
+          </form> 
+        </div>
+      </div>
+  
+
+    <!--  product Corousal start-->
+    <div class="container">
+
+      <!--Slideshow starts here -->
+      {% for products,range,nSlides in allProducts %}
+      <section id="{{products.0.product_category}}">
+        <br>
+        <hr>
+      <h5 class="my-4"><strong class="banner-title">{{products.0.product_category}}</strong></h5>
+      <hr>
+      <div class="row">
+  <div id="demo{{forloop.counter}}" class=" col carousel slide my-3" data-ride="carousel">
+      <ul class="carousel-indicators" id="carousel-indicators2">
+        <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+  
+         {% for i in range %}
+        <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}" ></li>
+        {% endfor %}
+      </ul>
+  
+  
+      <div class="container carousel-inner no-padding">
+  
+        <div class="carousel-item active">
+          
+          {% for i in products %}
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <div class="card align-items-center" style="width: 18rem;margin:0px;padding:0px;height:25rem">
+              <img src='/media/{{i.product_image}}' class="card-img-top " alt="...">
+              <div class="card-body">
+                <h6 class="card-title" id="nameproduct{{i.id}}">{{i.product_name}}</h6>
+                <p class="card-text">{{i.product_description|slice:"0:20"}}....</p>
+                <h6 class="card-title">Price: Rs <span id="priceproduct{{i.id}}">{{i.product_price}}</span></h6>
+                <span id="divproduct{{i.id}}" class="divproduct">
+                <button id="product{{i.id}}" class="btn btn-blue cart">Add To Cart</button>
+              </span>
+                <a href="/shop/productview/{{i.id}}" id="product{{i.id}}" class="btn btn-blue cart">View Product</a>
+              </div>
+            </div>
+          </div>
+          {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+        </div><div class="carousel-item">
+          {% endif %}
+  
+          {% endfor %}
+      </div>
+  
+  
+  
+  </div>
+  </div>
+      <!-- left and right controls for the slide -->
+      <a class="carousel-control-prev" id="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+          <span class="carousel-control-prev-icon" id="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" id="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+          <span class="carousel-control-next-icon" id="carousel-control-next-icon"></span>
+      </a>
+    </div>
+      </section>
+      {% endfor %}
+  </div>
+  </section>
+   {% endblock %}
+    {% block js %}
+    
+    <script src="{%static 'shop/js/index.js' %}"></script>
+    
+    {% endblock %}
+      <!--
+       card Corousal end
+    -->

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
+
+
+
+body{
+    font-family: 'Chilanka', cursive;
+  }
+
+  .btn-black{
+    border:0.1rem solid black;
+    color: black;
+    font-weight: bold;
+  }
+ 
+  .btn-blue{
+ 
+    border:0.1rem solid #7070b7;
+    color: #7070b7;
+  }
+ .btn-black:hover{
+    background: #7070b7;
+    color: black;
+  }
+ .btn-blue:hover{
+  background: #7070b7;
+    color: white;
+  }
+ 

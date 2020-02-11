@@ -1,0 +1,36 @@
+{% extends 'shop/base.html' %}
+{%  block title %} {{product.product_name}} {%endblock%}
+
+{% block body %}
+<div class="container my-4">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="row">
+        <img src="/media/{{product.product_image}}" width="350px" height="400px">
+    </div>
+        <div class="row my-5" >
+            
+            <a href="/shop" class="btn btn-blue mx-3">Back</a>
+        </div>
+
+    </div>
+
+    <div class="col-md-8">
+        <h5 id="productname">{{product.product_name}}</h5>
+        <p id="productprice"><b>Rs.{{product.product_price}} </b></p>
+        <p>{{product.product_description}}</p>
+
+
+    </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
+{% block js %}
+<script>
+  $('.cartpopup').hide();
+  $('#clearCart').hide();
+</script>
+{% endblock %}
